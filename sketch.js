@@ -37,8 +37,14 @@ function setup() {
 
 
 function draw() {
+  if (second()>15){
+    background(0)
+    }
+    else{background(20,134,106)}
+
+
   noStroke()
-  background("black");
+  
   fill("gold");
 
   // draw circle
@@ -64,11 +70,11 @@ ellipse(mouseX, mouseY, 30, 60)
 line(mouseX, mouseY, mouseX, 1000)
 
 
-fill('blue')
+
+fill(20,134,106)
 noStroke()
   redraw([1])
   textSize(40)
 text('Quidditch', 900, 100, 100, 100)
-
 
 }
