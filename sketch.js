@@ -1,10 +1,8 @@
-let mFont;
-let mSize = 120;
 
-let word = "Quidditch";
-let wordPoints;
+let s0 = "Harry, Ron, Ginny, Cedrik";
+let words;
 
-
+let chosenIndex = -1;
 
 
 let xPos = 0;
@@ -21,7 +19,7 @@ let cDiam = 15;
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
- 
+  words = s0.split(", ")
 }
 
 
@@ -77,4 +75,15 @@ noStroke()
   textSize(40)
 text('Quidditch', 900, 100, 100, 100)
 
+
+if (chosenIndex > -1) {
+  text(words[chosenIndex], random(width) , random(height) );
 }
+
+}
+function mouseClicked (){
+  chosenIndex = floor(random(0, words.length))
+}
+
+
+
