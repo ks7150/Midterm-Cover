@@ -12,7 +12,6 @@ let cDiam = 15;
 let cDiam1= 40;
 
 
-
 function setup() {
   createCanvas(windowWidth, windowHeight);
 
@@ -78,7 +77,6 @@ fill(255,0,0)
   xPosbig=0 
  }
 
-
   // update pos
   xPos = xPos + xVel;
 
@@ -123,6 +121,4 @@ if( touchpoint2<90){
   text('10', 900, 250, 900, 200)
 
 }
-
-
 }
