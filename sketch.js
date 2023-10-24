@@ -1,9 +1,4 @@
 
-let s0 = "Harry, Ron, Ginny, Cedrik";
-let words;
-
-let chosenIndex = -1;
-
 
 let xPos = 0;
 
@@ -19,9 +14,8 @@ let cDiam = 15;
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  words = s0.split(", ")
-}
 
+}
 
 //class Hoop{
 //constructor(){
@@ -31,22 +25,43 @@ function setup() {
 
 //}
 
-
-
-
 function draw() {
-  if (second()>15){
-    background(0)
-    }
-    else{background(20,134,106)}
+  
+  //if (second()>15){
+  //  background(0)
+   // }
+   // else{background(20,134,106)}
+// background fade 
 
+
+let periodcounter = second() % 30;
+let c1= color(20,134,106);
+let c2= color(0,0,0);
+let amt= map(periodcounter,0,29,0, 1); 
+let bcolor= lerpColor(c1, c2, amt);
+background(bcolor)
 
   noStroke()
-  
+
   fill("gold");
 
+  let Randx= random(xPos)
+let Randy= random(yPos)
+
   // draw circle
-  ellipse(random(xPos), random(yPos), cDiam, cDiam);
+  ellipse(Randx, Randy, cDiam, cDiam);
+
+ //if( mouseX == Randx && mouseY == Randy) {
+//xPos=0}
+
+// reset the position of the ball 
+
+ let distancetoball = dist(Randx, Randy, mouseX, mouseY);
+
+ if ( distancetoball < 30){ 
+  xPos=0
+ }
+
 
   // update pos
   xPos = xPos + xVel;
@@ -55,6 +70,8 @@ function draw() {
   if (xPos > width + cDiam) {
     cDiam = random(15, 10);
     xPos = 0 - cDiam;
+
+
 //if (xPos= mouseX){
  // xPos=0
 }
@@ -72,18 +89,8 @@ line(mouseX, mouseY, mouseX, 1000)
 fill(20,134,106)
 noStroke()
   redraw([1])
-  textSize(40)
+  textSize(100)
 text('Quidditch', 900, 100, 100, 100)
-
-
-if (chosenIndex > -1) {
-  text(words[chosenIndex], random(width) , random(height) );
 }
-
-}
-function mouseClicked (){
-  chosenIndex = floor(random(0, words.length))
-}
-
 
 
